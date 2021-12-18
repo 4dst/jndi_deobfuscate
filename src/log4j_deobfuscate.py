@@ -8,17 +8,18 @@ import json
 import os
 import re
 
+from binascii import Error as b64Error
 from collections import namedtuple
 from functools import partial
 from typing import Iterator, List, Tuple
 from urllib.parse import unquote
 
 JNDIParts = namedtuple(
-    "JNDIParts", ["original", "deobfuscated", "protocol", "host", "port", "path"]
+    "JNDIParts", ["original", "deobfuscated", "protocol", "host", "port", "path", "b64"]
 )
 
 
-def parse_jndi_proto_and_path(jndi: str) -> Tuple[str, str, str, str]:
+def parse_jndi_proto_and_path(jndi: str) -> Tuple[str, str, str, str, List[str]]:
     """Split JNDI string into components. No error checking..."""
 
     try:
@@ -26,13 +27,23 @@ def parse_jndi_proto_and_path(jndi: str) -> Tuple[str, str, str, str]:
         protocol: str = colon_split[1]
         slash_split: List[str] = jndi.split("/")
         host_port = slash_split[2]
-        path: str = "" if len(slash_split) < 4 else "/" + "/".join(slash_split[3:])
+        path: str = ""
+        b64: List[str] = []
+        if len(slash_split) > 3:
+            path = "/" + "/".join(slash_split[3:])
+            for b64_maybe in slash_split[3:]:
+                try:
+                    b64.append(
+                        base64.b64decode(b64_maybe, validate=True).decode("UTF-8")
+                    )
+                except b64Error:
+                    pass
 
         host, _, port_maybe = host_port.partition(":")
-        return protocol, host, port_maybe, path
+        return protocol, host, port_maybe, path, b64
     except Exception as exc:
         print(f"Failed to extract JNDI parts from '{jndi}': {exc}")
-        return "", "", "", ""
+        return "", "", "", "", []
 
 
 def repl_func(matchobj, group_selector: str) -> str:
@@ -54,6 +65,7 @@ def replace_lookups(pre: str, partition: str, active: str) -> JNDIParts:
     host: str = ""
     port: str = ""
     path: str = ""
+    b64: List[str] = []
 
     lookups = {
         "default_value_lookup": (
@@ -92,7 +104,7 @@ def replace_lookups(pre: str, partition: str, active: str) -> JNDIParts:
             else:
                 jndi_before_pass = jndi
         deobfuscated = f"{pre}{partition}{jndi}{remainder}"
-        protocol, host, port, path = parse_jndi_proto_and_path(jndi)
+        protocol, host, port, path, b64 = parse_jndi_proto_and_path(jndi)
 
     return JNDIParts(
         original=original,
@@ -101,6 +113,7 @@ def replace_lookups(pre: str, partition: str, active: str) -> JNDIParts:
         host=host,
         port=port,
         path=path,
+        b64=b64,
     )
 
 
@@ -115,6 +128,7 @@ def parse_jndi_sample(orig_jndi_sample: str) -> JNDIParts:
         host="",
         port="",
         path="",
+        b64=[],
     )
 
     # Remove percent-encoding.
