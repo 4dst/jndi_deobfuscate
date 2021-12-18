@@ -209,13 +209,13 @@ def main() -> None:
     # kibana_input_file = "from_kibana.txt"
     # jndi_samples_file = "jndi_samples.json"
 
-    # if not os.path.isfile(jndi_samples_file):
-    #     make_jndi_samples_file(kibana_input_file, jndi_samples_file)
+    if not os.path.isfile(jndi_samples_file):
+        make_jndi_samples_file(kibana_input_file, jndi_samples_file)
 
-    # deobfuscate_jndi(jndi_samples_file)
+    deobfuscate_jndi(jndi_samples_file)
 
-    performace_file = "performance_test.txt"
-    performace_test(performace_file)
+    # performace_file = "performance_test.txt"
+    # performace_test(performace_file)
 
 
 if __name__ == "__main__":
