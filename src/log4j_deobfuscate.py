@@ -26,9 +26,8 @@ def parse_jndi_proto_and_path(jndi: str) -> Tuple[str, str, str, str]:
         protocol: str = colon_split[1]
         slash_split: List[str] = jndi.split("/")
         host_port = slash_split[2]
-        path: str = "" if len(slash_split) < 4 else "/".join(slash_split[3:])
+        path: str = "" if len(slash_split) < 4 else "/" + "/".join(slash_split[3:])
 
-        breakpoint()
         host, _, port_maybe = host_port.partition(":")
         return protocol, host, port_maybe, path
     except Exception as exc:
