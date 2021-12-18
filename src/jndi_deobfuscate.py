@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+"""Simple JNDI string deobfuscator. Maybe it will bring some ideas to your exploit
+detection challenges."""
 
 # pylint: disable=line-too-long,broad-except
 
@@ -11,7 +13,7 @@ import re
 from binascii import Error as b64Error
 from collections import namedtuple
 from functools import partial
-from typing import Iterator, List, Tuple
+from typing import Iterator, List
 from urllib.parse import unquote
 
 JNDIParts = namedtuple(
@@ -19,7 +21,7 @@ JNDIParts = namedtuple(
 )
 
 
-def parse_jndi_proto_and_path(jndi: str) -> Tuple[str, str, str, str, List[str]]:
+def parse_jndi_proto_and_path(jndi: str, jndi_parts: JNDIParts) -> JNDIParts:
     """Split JNDI string into components. No error checking..."""
 
     try:
@@ -38,12 +40,13 @@ def parse_jndi_proto_and_path(jndi: str) -> Tuple[str, str, str, str, List[str]]
                     )
                 except b64Error:
                     pass
-
         host, _, port_maybe = host_port.partition(":")
-        return protocol, host, port_maybe, path, b64
+        return jndi_parts._replace(
+            protocol=protocol, host=host, port=port_maybe, path=path, b64=b64
+        )
     except Exception as exc:
         print(f"Failed to extract JNDI parts from '{jndi}': {exc}")
-        return "", "", "", "", []
+        return jndi_parts
 
 
 def repl_func(matchobj, group_selector: str) -> str:
@@ -60,12 +63,15 @@ def replace_lookups(pre: str, partition: str, active: str) -> JNDIParts:
     https://logging.apache.org/log4j/2.x/manual/configuration.html#PropertySubstitution
     """
 
-    original: str = f"{pre}${partition}{active}"
-    protocol: str = ""
-    host: str = ""
-    port: str = ""
-    path: str = ""
-    b64: List[str] = []
+    jndi_parts = JNDIParts(
+        original=f"{pre}${partition}{active}",
+        deobfuscated="",
+        protocol="",
+        host="",
+        port="",
+        path="",
+        b64=[],
+    )
 
     lookups = {
         "default_value_lookup": (
@@ -89,7 +95,7 @@ def replace_lookups(pre: str, partition: str, active: str) -> JNDIParts:
 
     # Unbalanced parens.
     if nesting_level != 0:
-        deobfuscated = original
+        jndi_parts = jndi_parts._replace(deobfuscated=jndi_parts.original)
     else:
         jndi, remainder = active[:pos], active[pos:]
         more_replacements = True
@@ -103,18 +109,12 @@ def replace_lookups(pre: str, partition: str, active: str) -> JNDIParts:
                 more_replacements = False
             else:
                 jndi_before_pass = jndi
-        deobfuscated = f"{pre}{partition}{jndi}{remainder}"
-        protocol, host, port, path, b64 = parse_jndi_proto_and_path(jndi)
+        jndi_parts = jndi_parts._replace(
+            deobfuscated=f"{pre}{partition}{jndi}{remainder}"
+        )
+        jndi_parts = parse_jndi_proto_and_path(jndi, jndi_parts)
 
-    return JNDIParts(
-        original=original,
-        deobfuscated=deobfuscated,
-        protocol=protocol,
-        host=host,
-        port=port,
-        path=path,
-        b64=b64,
-    )
+    return jndi_parts
 
 
 def parse_jndi_sample(orig_jndi_sample: str) -> JNDIParts:
@@ -148,7 +148,7 @@ def parse_jndi_sample(orig_jndi_sample: str) -> JNDIParts:
     return jndi_parts
 
 
-def deobfuscate_jndi(jndi_sample_path: str) -> None:
+def test_jndi_deobfuscating(jndi_sample_path: str) -> None:
     """Read samples and try to deobfuscate them. Store back in input file."""
 
     with open(jndi_sample_path, "rt", encoding="UTF-8") as f_json:
@@ -226,7 +226,14 @@ def main() -> None:
     if not os.path.isfile(jndi_samples_file):
         make_jndi_samples_file(kibana_input_file, jndi_samples_file)
 
-    deobfuscate_jndi(jndi_samples_file)
+    # test_jndi_deobfuscating(jndi_samples_file)
+
+    with open(jndi_samples_file, "rt", encoding="UTF-8") as f_json:
+        jndi_samples = json.load(f_json)
+    for jndi_sample in jndi_samples:
+        jndi_parts = parse_jndi_sample(jndi_sample["original"])
+        if jndi_parts.protocol != "":
+            print(jndi_parts)
 
     # performace_file = "performance_test.txt"
     # performace_test(performace_file)
