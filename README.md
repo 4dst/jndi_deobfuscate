@@ -13,7 +13,7 @@ which in turn uses functions `replace_lookups(str, str, str)->JNDIParts`,
 `parse_jndi_proto_and_path(str)->Tuple[str, str, str, str]`.
 
 Tuning has been done against the open Kibana here:
-[[https://log4shell.threatsearch.io/s/log4shell]]
+<https://log4shell.threatsearch.io/s/log4shell>
 
 The remaining functions can be viewed as setup/infrastructure to read in and
 convert sample strings. Note that if you start out fresh with the tab-separated
