@@ -1,4 +1,4 @@
-log4j_deobfuscate
+jndi_deobfuscate
 =================
 
 Simple Python 3 program to deobfuscate JNDI strings from logs into something 
@@ -7,10 +7,9 @@ easier to match on for detecting exploit attempts.
 The goal is to split a sample JNDI string into its parts; protocol, host, port
 and path.
 
-The main function to feed strings into is `parse_jndi_sample(str)->JNDIParts`
-which in turn uses functions `replace_lookups(str, str, str)->JNDIParts`,
-`repl_func(re.Match, str)->str` and 
-`parse_jndi_proto_and_path(str)->Tuple[str, str, str, str]`.
+The main function to feed strings into is `parse_jndi_sample()` which in turn
+uses functions `replace_lookups()`, `repl_func()` and
+`parse_jndi_proto_and_path()`.
 
 Tuning has been done against the open Kibana here:
 <https://log4shell.threatsearch.io/s/log4shell>
