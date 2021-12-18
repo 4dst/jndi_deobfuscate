@@ -4,25 +4,23 @@ detection challenges."""
 
 # pylint: disable=line-too-long,broad-except
 
-import base64
 import datetime
 import json
 import os
 import re
 
-from binascii import Error as b64Error
 from collections import namedtuple
 from functools import partial
 from typing import Iterator, List
 from urllib.parse import unquote
 
 JNDIParts = namedtuple(
-    "JNDIParts", ["original", "deobfuscated", "protocol", "host", "port", "path", "b64"]
+    "JNDIParts", ["original", "deobfuscated", "protocol", "host", "port", "path"]
 )
 
 
 def parse_jndi_proto_and_path(jndi: str, jndi_parts: JNDIParts) -> JNDIParts:
-    """Split JNDI string into components. No error checking..."""
+    """Split JNDI string into components."""
 
     try:
         colon_split = jndi.split(":")
@@ -30,19 +28,11 @@ def parse_jndi_proto_and_path(jndi: str, jndi_parts: JNDIParts) -> JNDIParts:
         slash_split: List[str] = jndi.split("/")
         host_port = slash_split[2]
         path: str = ""
-        b64: List[str] = []
         if len(slash_split) > 3:
             path = "/" + "/".join(slash_split[3:])
-            for b64_maybe in slash_split[3:]:
-                try:
-                    b64.append(
-                        base64.b64decode(b64_maybe, validate=True).decode("UTF-8")
-                    )
-                except b64Error:
-                    pass
         host, _, port_maybe = host_port.partition(":")
         return jndi_parts._replace(
-            protocol=protocol, host=host, port=port_maybe, path=path, b64=b64
+            protocol=protocol, host=host, port=port_maybe, path=path
         )
     except Exception as exc:
         print(f"Failed to extract JNDI parts from '{jndi}': {exc}")
@@ -70,7 +60,6 @@ def replace_lookups(pre: str, partition: str, active: str) -> JNDIParts:
         host="",
         port="",
         path="",
-        b64=[],
     )
 
     lookups = {
@@ -128,7 +117,6 @@ def parse_jndi_sample(orig_jndi_sample: str) -> JNDIParts:
         host="",
         port="",
         path="",
-        b64=[],
     )
 
     # Remove percent-encoding.
@@ -204,34 +192,57 @@ def make_jndi_samples_file(tab_separated_input_path: str, output_path: str) -> N
 
 
 def performace_test(samples: str) -> None:
-    """Basic performace test."""
+    """Basic performace test. Put a large amount of obfuscated JNDI strings in samples file,
+    one per line."""
 
+    # Read all samples to try to reduce impact of I/O in test.
     with open(samples, "rt", encoding="UTF-8") as f_in:
-        lines = f_in.readlines()
+        samples = f_in.readlines()
     t_start = datetime.datetime.now()
-    for line in lines:
-        _ = parse_jndi_sample(line)
+    for sample in samples:
+        _ = parse_jndi_sample(sample)
     t_stop = datetime.datetime.now()
     t_delta = t_stop - t_start
-    speed = len(lines) / t_delta.total_seconds()
-    print(f"{len(lines)} in {t_delta} at {speed:.2f} lines/s")
+    speed = len(samples) / t_delta.total_seconds()
+    print(f"{len(samples)} samples processed in {t_delta} at {speed:.2f} lines/s")
+
+
+def samples_from_json(samples_file):
+    """Sample generator from JSON."""
+    with open(samples_file, "rt", encoding="UTF-8") as f_samples:
+        samples = [sample["original"] for sample in json.load(f_samples)]
+    return samples
+
+
+def samples_from_kibana(samples_file):
+    """Sample generator from Kibana."""
+    with open(samples_file, "rt", encoding="UTF-8") as f_samples:
+        for line in f_samples:
+            line = line.strip()
+            if len(line) == 0:
+                continue
+            if line.startswith("#"):
+                continue
+            for sample_part in line.split("\t"):
+                sample_part = sample_part.strip()
+                if sample_part == "-":
+                    continue
+                yield sample_part
 
 
 def main() -> None:
     """De-obfuscate JNDI strings."""
 
-    kibana_input_file = "from_kibana.txt"
+    kibana_samples_file = "from_kibana.txt"
     jndi_samples_file = "jndi_samples.json"
 
     if not os.path.isfile(jndi_samples_file):
-        make_jndi_samples_file(kibana_input_file, jndi_samples_file)
+        make_jndi_samples_file(kibana_samples_file, jndi_samples_file)
 
     # test_jndi_deobfuscating(jndi_samples_file)
 
-    with open(jndi_samples_file, "rt", encoding="UTF-8") as f_json:
-        jndi_samples = json.load(f_json)
-    for jndi_sample in jndi_samples:
-        jndi_parts = parse_jndi_sample(jndi_sample["original"])
+    for jndi_sample in samples_from_kibana(kibana_samples_file):
+        jndi_parts = parse_jndi_sample(jndi_sample)
         if jndi_parts.protocol != "":
             print(jndi_parts)
 
